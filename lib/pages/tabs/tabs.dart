@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/pages/drawer/drawer.dart';
-import 'package:flutter_learning/utils/extensions.dart';
 
 import 'home.dart';
 import 'category.dart';

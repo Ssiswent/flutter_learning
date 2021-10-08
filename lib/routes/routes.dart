@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/pages/drawer/user.dart';
+import 'package:flutter_learning/pages/other/date_picker.dart';
 
 import 'package:flutter_learning/pages/other/form.dart';
 import 'package:flutter_learning/pages/other/product.dart';
 import 'package:flutter_learning/pages/other/search.dart';
+import 'package:flutter_learning/pages/other/swiper.dart';
 import 'package:flutter_learning/pages/tabs/tabs.dart';
 import 'package:flutter_learning/pages/user/login.dart';
 import 'package:flutter_learning/pages/user/register_first.dart';
@@ -20,6 +22,8 @@ final routes = {
   "/register_first": (context) => const RegisterFirsrPage(),
   "/register_second": (context) => const RegisterSecondPage(),
   "/user": (context) => const UserPage(),
+  "/date": (context) => const DatePickerPage(),
+  "/swiper": (context) => const SwiperPage(),
 };
 
 // 固定写法

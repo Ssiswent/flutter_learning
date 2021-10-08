@@ -68,6 +68,24 @@ class _HomePageState extends State<HomePage> {
               Navigator.pushNamed(context, "/form", arguments: {"id": 123}),
         ),
         const Divider(),
+        ListTile(
+          contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          title: const Text("跳转到日期页"),
+          onTap: () => Navigator.pushNamed(context, "/date"),
+        ),
+        const Divider(),
+        ListTile(
+          contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          title: const Text("跳转到轮播图页"),
+          onTap: () => Navigator.pushNamed(context, "/swiper"),
+        ),
+        const Divider(),
         Column(
           children: list.map((e) => ListTile(title: e)).toList(),
         ),
