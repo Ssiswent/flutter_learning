@@ -86,6 +86,15 @@ class _HomePageState extends State<HomePage> {
           onTap: () => Navigator.pushNamed(context, "/swiper"),
         ),
         const Divider(),
+        ListTile(
+          contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          title: const Text("跳转到Dialog页"),
+          onTap: () => Navigator.pushNamed(context, "/dialog"),
+        ),
+        const Divider(),
         Column(
           children: list.map((e) => ListTile(title: e)).toList(),
         ),
@@ -118,6 +127,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget getCard() {
     return Card(
+      clipBehavior: Clip.antiAlias,
       elevation: 15,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(14))),
@@ -125,14 +135,9 @@ class _HomePageState extends State<HomePage> {
         children: [
           AspectRatio(
             aspectRatio: 19 / 9,
-            child: Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(14),
-                    topRight: Radius.circular(14)),
-                image: DecorationImage(
-                    image: AssetImage("images/img1.jpeg"), fit: BoxFit.cover),
-              ),
+            child: Image.asset(
+              "images/img1.jpeg",
+              fit: BoxFit.cover,
             ),
           ),
           const ListTile(

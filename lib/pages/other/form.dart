@@ -20,44 +20,6 @@ class _FormPageState extends State<FormPage> {
     {"checked": true, "title": "写代码"},
   ];
 
-  List<Widget> _getHobbies() {
-    List<Widget> tempList = [];
-    for (var hobby in hobbies) {
-      tempList.add(
-        Row(
-          children: [
-            Text(
-              hobby["title"],
-              style: TextStyle(
-                color: hobby["checked"] ? Colors.red : Colors.black,
-              ),
-            ),
-            Checkbox(
-                value: hobby["checked"],
-                onChanged: (value) {
-                  setState(() {
-                    hobby["checked"] = value!;
-                  });
-                })
-          ],
-        ),
-      );
-    }
-    return tempList;
-  }
-
-  void _checkBoxChanged(value) {
-    setState(() {
-      checkBoxFlag = value;
-    });
-  }
-
-  void _sexChanged(value) {
-    setState(() {
-      sex = value;
-    });
-  }
-
   @override
   void initState() {
     super.initState();
@@ -167,6 +129,44 @@ class _FormPageState extends State<FormPage> {
         },
       ),
     );
+  }
+
+  List<Widget> _getHobbies() {
+    List<Widget> tempList = [];
+    for (var hobby in hobbies) {
+      tempList.add(
+        Row(
+          children: [
+            Text(
+              hobby["title"],
+              style: TextStyle(
+                color: hobby["checked"] ? Colors.red : Colors.black,
+              ),
+            ),
+            Checkbox(
+                value: hobby["checked"],
+                onChanged: (value) {
+                  setState(() {
+                    hobby["checked"] = value!;
+                  });
+                })
+          ],
+        ),
+      );
+    }
+    return tempList;
+  }
+
+  void _checkBoxChanged(value) {
+    setState(() {
+      checkBoxFlag = value;
+    });
+  }
+
+  void _sexChanged(value) {
+    setState(() {
+      sex = value;
+    });
   }
 }
 

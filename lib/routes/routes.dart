@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/pages/drawer/user.dart';
 import 'package:flutter_learning/pages/other/date_picker.dart';
+import 'package:flutter_learning/pages/other/dialog.dart';
 
 import 'package:flutter_learning/pages/other/form.dart';
 import 'package:flutter_learning/pages/other/product.dart';
@@ -24,6 +25,7 @@ final routes = {
   "/user": (context) => const UserPage(),
   "/date": (context) => const DatePickerPage(),
   "/swiper": (context) => const SwiperPage(),
+  "/dialog": (context) => const DialogPage(),
 };
 
 // 固定写法

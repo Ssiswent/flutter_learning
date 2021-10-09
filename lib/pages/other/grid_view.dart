@@ -37,13 +37,15 @@ Widget _getListData(context, index) {
   return Container(
     child: Column(
       children: [
-        Container(
-          height: 100,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
+        AspectRatio(
+          aspectRatio: 16 / 9,
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(14), topRight: Radius.circular(14)),
-            image: DecorationImage(
-                image: AssetImage("images/img1.jpeg"), fit: BoxFit.cover),
+            child: Image.asset(
+              "images/img1.jpeg",
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         const SizedBox(height: 16),
