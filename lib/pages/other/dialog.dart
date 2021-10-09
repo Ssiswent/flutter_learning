@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/components/custom_dialog.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class DialogPage extends StatefulWidget {
@@ -34,7 +35,20 @@ class _DialogPageState extends State<DialogPage> {
             ElevatedButton(
               onPressed: _showToast,
               child: const Text('Toast'),
-            )
+            ),
+            const Divider(height: 40),
+            const Text("自定义Dialog"),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const CustomDialog("关于我们", "内容");
+                    });
+              },
+              child: const Text('关于我们'),
+            ),
           ],
         ),
       ),
@@ -91,7 +105,7 @@ class _DialogPageState extends State<DialogPage> {
               SimpleDialogOption(
                 child: const Text("选项1"),
                 onPressed: () {
-                  print("1");
+                  // print("1");
                   Navigator.pop(context);
                 },
               ),
@@ -99,7 +113,7 @@ class _DialogPageState extends State<DialogPage> {
               SimpleDialogOption(
                 child: const Text("选项2"),
                 onPressed: () {
-                  print("2");
+                  // print("2");
                   Navigator.pop(context);
                 },
               ),
@@ -107,7 +121,7 @@ class _DialogPageState extends State<DialogPage> {
               SimpleDialogOption(
                 child: const Text("选项3"),
                 onPressed: () {
-                  print("3");
+                  // print("3");
                   Navigator.pop(context);
                 },
               )
@@ -120,14 +134,14 @@ class _DialogPageState extends State<DialogPage> {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return Container(
+          return SizedBox(
             height: 240,
             child: Column(
               children: [
                 ListTile(
                   title: const Text("分享A"),
                   onTap: () {
-                    print("分享A");
+                    // print("分享A");
                     Navigator.pop(context);
                   },
                 ),
@@ -135,7 +149,7 @@ class _DialogPageState extends State<DialogPage> {
                 ListTile(
                   title: const Text("分享B"),
                   onTap: () {
-                    print("分享B");
+                    // print("分享B");
                     Navigator.pop(context);
                   },
                 ),
@@ -143,7 +157,7 @@ class _DialogPageState extends State<DialogPage> {
                 ListTile(
                   title: const Text("分享C"),
                   onTap: () {
-                    print("分享C");
+                    // print("分享C");
                     Navigator.pop(context);
                   },
                 ),

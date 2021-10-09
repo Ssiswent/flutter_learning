@@ -41,6 +41,7 @@ dependencies:
   date_format: ^2.0.4
   # flutter_swiper: ^1.1.6
   flutter_swiper_null_safety: ^1.0.2
+  http: ^0.13.4
   flutter_datetime_picker: 
     git:
       url: https://github.com/Realank/flutter_datetime_picker.git

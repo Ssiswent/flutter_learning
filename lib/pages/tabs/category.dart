@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/custom/round_underline_tab_indicator.dart';
+import 'package:flutter_learning/components/round_underline_tab_indicator.dart';
 import 'package:flutter_learning/pages/other/grid_view.dart';
 
 class CategoryPage extends StatefulWidget {

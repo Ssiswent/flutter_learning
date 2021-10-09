@@ -95,6 +95,15 @@ class _HomePageState extends State<HomePage> {
           onTap: () => Navigator.pushNamed(context, "/dialog"),
         ),
         const Divider(),
+        ListTile(
+          contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          title: const Text("跳转到网络请求页"),
+          onTap: () => Navigator.pushNamed(context, "/network"),
+        ),
+        const Divider(),
         Column(
           children: list.map((e) => ListTile(title: e)).toList(),
         ),

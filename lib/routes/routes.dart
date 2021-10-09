@@ -4,7 +4,9 @@ import 'package:flutter_learning/pages/other/date_picker.dart';
 import 'package:flutter_learning/pages/other/dialog.dart';
 
 import 'package:flutter_learning/pages/other/form.dart';
+import 'package:flutter_learning/pages/other/network_request.dart';
 import 'package:flutter_learning/pages/other/product.dart';
+import 'package:flutter_learning/pages/other/product_list.dart';
 import 'package:flutter_learning/pages/other/search.dart';
 import 'package:flutter_learning/pages/other/swiper.dart';
 import 'package:flutter_learning/pages/tabs/tabs.dart';
@@ -26,6 +28,8 @@ final routes = {
   "/date": (context) => const DatePickerPage(),
   "/swiper": (context) => const SwiperPage(),
   "/dialog": (context) => const DialogPage(),
+  "/network": (context) => const NetworkRequstPage(),
+  "/productList": (context) => const ProductListPage(),
 };
 
 // 固定写法

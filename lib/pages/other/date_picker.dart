@@ -157,7 +157,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
       minTime: DateTime(1980),
       maxTime: DateTime(2030),
       onChanged: (date) {
-        print('change $date');
+        // print('change $date');
       },
       onConfirm: (date) {
         setState(() {
@@ -181,8 +181,8 @@ class _DatePickerPageState extends State<DatePickerPage> {
       context,
       showTitleActions: true,
       onChanged: (date) {
-        print('change $date in time zone ' +
-            date.timeZoneOffset.inHours.toString());
+        // print('change $date in time zone ' +
+        //     date.timeZoneOffset.inHours.toString());
       },
       onConfirm: (date) {
         setState(() {
@@ -206,8 +206,8 @@ class _DatePickerPageState extends State<DatePickerPage> {
       context,
       showTitleActions: true,
       onChanged: (date) {
-        print('change $date in time zone ' +
-            date.timeZoneOffset.inHours.toString());
+        // print('change $date in time zone ' +
+        //     date.timeZoneOffset.inHours.toString());
       },
       onConfirm: (date) {
         setState(() {

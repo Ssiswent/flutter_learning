@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/custom/round_underline_tab_indicator.dart';
+import 'package:flutter_learning/components/round_underline_tab_indicator.dart';
 import 'package:flutter_learning/pages/user/login_register.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -19,7 +19,7 @@ class _SettingsPageState extends State<SettingsPage>
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
     _tabController.addListener(() {
-      print("TabController index: ${_tabController.index}");
+      // print("TabController index: ${_tabController.index}");
     });
   }
 
