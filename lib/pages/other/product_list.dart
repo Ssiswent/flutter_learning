@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:logger/logger.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_learning/api/rest_client.dart';
+
 class ProductListPage extends StatefulWidget {
   const ProductListPage({Key? key}) : super(key: key);
 
@@ -17,7 +21,8 @@ class _ProductListPageState extends State<ProductListPage> {
   void initState() {
     super.initState();
 
-    _getData();
+    // _getData();
+    _getDioData();
   }
 
   @override
@@ -45,5 +50,21 @@ class _ProductListPageState extends State<ProductListPage> {
         list = json.decode(response.body)["result"];
       });
     }
+  }
+
+  void _getDioData() {
+    final logger = Logger();
+    // Provide a dio instance
+    final dio = Dio();
+    // config your dio headers globally
+    // dio.options.headers["Demo-Header"] = "demo header";
+    final client = RestClient(dio);
+
+    client.getProducts().then((result) {
+      logger.i(result);
+      setState(() {
+        list = json.decode(result)["result"];
+      });
+    });
   }
 }
