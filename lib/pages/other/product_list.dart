@@ -41,7 +41,8 @@ class _ProductListPageState extends State<ProductListPage> {
     );
   }
 
-  void _getData() async {
+  // ignore: unused_element
+  _getData() async {
     var url = Uri.parse("https://jd.itying.com/api/pcate");
     var response = await http.get(url);
     if (response.statusCode == 200) {
@@ -51,7 +52,7 @@ class _ProductListPageState extends State<ProductListPage> {
     }
   }
 
-  void _getDioData() {
+  _getDioData() {
     final dio = Dio();
     // dio.options.headers["Demo-Header"] = "demo header";
     final client = RestClient(dio);

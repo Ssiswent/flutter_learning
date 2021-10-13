@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:flutter_learning/components/custom_dialog.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -48,6 +49,17 @@ class _DialogPageState extends State<DialogPage> {
                     });
               },
               child: const Text('关于我们'),
+            ),
+            const Divider(height: 40),
+            const Text("Get--Dialog"),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: _showGetSnackbar,
+              child: const Text('Snackbar'),
+            ),
+            ElevatedButton(
+              onPressed: _showGetDialog,
+              child: const Text('DefaultDialog'),
             ),
           ],
         ),
@@ -106,7 +118,7 @@ class _DialogPageState extends State<DialogPage> {
                 child: const Text("选项1"),
                 onPressed: () {
                   // print("1");
-                  Navigator.pop(context);
+                  Get.back();
                 },
               ),
               const Divider(),
@@ -114,7 +126,7 @@ class _DialogPageState extends State<DialogPage> {
                 child: const Text("选项2"),
                 onPressed: () {
                   // print("2");
-                  Navigator.pop(context);
+                  Get.back();
                 },
               ),
               const Divider(),
@@ -122,7 +134,7 @@ class _DialogPageState extends State<DialogPage> {
                 child: const Text("选项3"),
                 onPressed: () {
                   // print("3");
-                  Navigator.pop(context);
+                  Get.back();
                 },
               )
             ],
@@ -142,7 +154,7 @@ class _DialogPageState extends State<DialogPage> {
                   title: const Text("分享A"),
                   onTap: () {
                     // print("分享A");
-                    Navigator.pop(context);
+                    Get.back();
                   },
                 ),
                 const Divider(),
@@ -150,7 +162,7 @@ class _DialogPageState extends State<DialogPage> {
                   title: const Text("分享B"),
                   onTap: () {
                     // print("分享B");
-                    Navigator.pop(context);
+                    Get.back();
                   },
                 ),
                 const Divider(),
@@ -158,7 +170,7 @@ class _DialogPageState extends State<DialogPage> {
                   title: const Text("分享C"),
                   onTap: () {
                     // print("分享C");
-                    Navigator.pop(context);
+                    Get.back();
                   },
                 ),
               ],
@@ -176,5 +188,97 @@ class _DialogPageState extends State<DialogPage> {
         backgroundColor: Colors.red,
         textColor: Colors.white,
         fontSize: 16.0);
+  }
+
+  _showGetSnackbar() {
+    Get.snackbar(
+      "Hi", "message",
+      // colorText: Colors.blue,
+      // snackPosition: SnackPosition.BOTTOM,
+      icon: const Icon(Icons.ac_unit, color: Colors.white),
+      titleText: const Text(
+        "Title",
+        style: TextStyle(fontSize: 20, color: Colors.blue),
+      ),
+      messageText: const Text(
+        "Message",
+        style: TextStyle(fontSize: 18, color: Colors.black),
+      ),
+      borderRadius: 24,
+      // snackStyle: SnackStyle.GROUNDED,
+      // backgroundColor: Colors.cyan,
+      // borderWidth: 2,
+      // borderColor: Colors.red,
+      // backgroundGradient: const LinearGradient(
+      //     begin: Alignment.topCenter,
+      //     end: Alignment.bottomCenter,
+      //     colors: [Colors.black, Colors.yellow]),
+    );
+  }
+
+  _showGetDialog() {
+    Get.defaultDialog(
+      title: "title",
+      // middleText: "middleText",
+      // titlePadding: const EdgeInsets.all(10),
+      // titleStyle: const TextStyle(fontSize: 20, color: Colors.cyan),
+      content: Container(
+        // 使用SizedBox并设置宽度是为了让文本从左开始显示
+        width: double.infinity,
+        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+        child: const Text(
+          "content",
+          // style: TextStyle(fontSize: 20, color: Colors.cyan),
+        ),
+      ),
+      // textConfirm: "Confirm",
+      // textCancel: "Cancel",
+      // cancelTextColor: Colors.blue,
+      // confirmTextColor: Colors.white,
+      // 实现了自定义的控件后，将无效，onCancel不要实现Get.back()方法，已经自带了
+      // onCancel: () => Get.back(),
+      onConfirm: () => Get.back(),
+      cancel: SizedBox(
+        width: 120,
+        child: Row(
+          children: [
+            Expanded(
+                child: OutlinedButton(
+              onPressed: () => Get.back(),
+              child: const Text("cancel"),
+              style: OutlinedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                side: const BorderSide(width: 2, color: Colors.red),
+              ),
+            )),
+            const SizedBox(width: 20),
+          ],
+        ),
+      ),
+      confirm: SizedBox(
+        width: 120,
+        child: Row(
+          children: [
+            const SizedBox(width: 20),
+            Expanded(
+                child: ElevatedButton(
+              onPressed: () => Get.back(),
+              child: const Text("confirm"),
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24),
+              )),
+            )),
+          ],
+        ),
+      ),
+      // backgroundColor: Colors.cyan,
+      // 点击外部是否消失
+      // barrierDismissible: false,
+      // buttonColor: Colors.cyan,
+      radius: 24,
+    );
   }
 }

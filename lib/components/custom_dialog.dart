@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class CustomDialog extends Dialog {
                         child: InkWell(
                           child: const Icon(Icons.close),
                           onTap: () {
-                            Navigator.pop(context);
+                            Get.back();
                           },
                         ),
                       )
@@ -66,7 +67,7 @@ class CustomDialog extends Dialog {
 
   void _showTimer(context) {
     Timer.periodic(const Duration(seconds: 3), (timer) {
-      Navigator.pop(context);
+      Get.back();
       timer.cancel();
     });
   }

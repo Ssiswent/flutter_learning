@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/pages/other/date_picker.dart';
+import 'package:flutter_learning/pages/other/dialog.dart';
+import 'package:flutter_learning/pages/other/form.dart';
+import 'package:flutter_learning/pages/other/get_store.dart';
+import 'package:flutter_learning/pages/other/network_request.dart';
+import 'package:flutter_learning/pages/other/product.dart';
+import 'package:flutter_learning/pages/other/search.dart';
+import 'package:flutter_learning/pages/other/swiper.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   // 回调
@@ -27,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
-              Navigator.pushNamed(context, "/search");
+              Get.to(() => const SearchPage());
             },
           ),
           IconButton(
@@ -54,19 +63,18 @@ class _HomePageState extends State<HomePage> {
             borderRadius: BorderRadius.circular(8),
           ),
           title: const Text("跳转到商品详情页并传值"),
-          onTap: () =>
-              Navigator.pushNamed(context, "/product", arguments: {"pid": 456}),
+          onTap: () => Get.to(() => const ProductPage(arguments: {"pid": 456})),
         ),
         const Divider(),
         ListTile(
-          contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-          title: const Text("跳转到表单页并传值"),
-          onTap: () =>
-              Navigator.pushNamed(context, "/form", arguments: {"id": 123}),
-        ),
+            contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            title: const Text("跳转到表单页并传值"),
+            onTap: () => Get.to(() => const FormPage(
+                  arguments: {"id": 123},
+                ))),
         const Divider(),
         ListTile(
           contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
@@ -74,7 +82,7 @@ class _HomePageState extends State<HomePage> {
             borderRadius: BorderRadius.circular(8),
           ),
           title: const Text("跳转到日期页"),
-          onTap: () => Navigator.pushNamed(context, "/date"),
+          onTap: () => Get.to(() => const DatePickerPage()),
         ),
         const Divider(),
         ListTile(
@@ -83,7 +91,7 @@ class _HomePageState extends State<HomePage> {
             borderRadius: BorderRadius.circular(8),
           ),
           title: const Text("跳转到轮播图页"),
-          onTap: () => Navigator.pushNamed(context, "/swiper"),
+          onTap: () => Get.to(() => const SwiperPage()),
         ),
         const Divider(),
         ListTile(
@@ -92,7 +100,7 @@ class _HomePageState extends State<HomePage> {
             borderRadius: BorderRadius.circular(8),
           ),
           title: const Text("跳转到Dialog页"),
-          onTap: () => Navigator.pushNamed(context, "/dialog"),
+          onTap: () => Get.to(() => const DialogPage()),
         ),
         const Divider(),
         ListTile(
@@ -101,7 +109,16 @@ class _HomePageState extends State<HomePage> {
             borderRadius: BorderRadius.circular(8),
           ),
           title: const Text("跳转到网络请求页"),
-          onTap: () => Navigator.pushNamed(context, "/network"),
+          onTap: () => Get.to(() => const NetworkRequstPage()),
+        ),
+        const Divider(),
+        ListTile(
+          contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          title: const Text("跳转到简单存储页"),
+          onTap: () => Get.to(() => const GetStorePage()),
         ),
         const Divider(),
         Column(

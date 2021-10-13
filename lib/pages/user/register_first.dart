@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/pages/user/register_second.dart';
+import 'package:get/get.dart';
 
 class RegisterFirsrPage extends StatelessWidget {
   const RegisterFirsrPage({Key? key}) : super(key: key);
@@ -15,9 +17,8 @@ class RegisterFirsrPage extends StatelessWidget {
         children: [
           const Text("这里是注册第一步"),
           ElevatedButton(
-              onPressed: () =>
-                  // Navigator.pushReplacementNamed(context, "/register_second"),
-                  Navigator.pushNamed(context, "/register_second"),
+              onPressed: () => Get.to(() => const RegisterSecondPage()),
+              // Get.off(const RegisterSecondPage()),
               child: const Text("下一步"))
         ],
       )),

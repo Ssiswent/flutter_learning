@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 
 import '../tabs/tabs.dart';
 
@@ -19,12 +20,7 @@ class RegisterSecondPage extends StatelessWidget {
           const Text("这里是注册第二步"),
           ElevatedButton(
               onPressed: () {
-                // Navigator.pop(context);
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const Tabs(index: 2)),
-                    (route) => false);
+                Get.offAll(const Tabs(index: 2));
                 Fluttertoast.showToast(
                     msg: "注册成功",
                     // toastLength: Toast.LENGTH_SHORT,

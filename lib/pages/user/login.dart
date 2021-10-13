@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class LoginPage extends StatelessWidget {
           const Text("这里是登录页"),
           ElevatedButton(
               onPressed: () {
-                Navigator.pop(context);
+                Get.back();
                 Fluttertoast.showToast(
                     msg: "登录成功",
                     // toastLength: Toast.LENGTH_SHORT,

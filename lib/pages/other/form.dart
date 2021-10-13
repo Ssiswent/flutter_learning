@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class FormPage extends StatefulWidget {
   final Map? arguments;
@@ -125,7 +126,7 @@ class _FormPageState extends State<FormPage> {
       floatingActionButton: FloatingActionButton(
         child: const Text("返回"),
         onPressed: () {
-          Navigator.pop(context);
+          Get.back();
         },
       ),
     );
