@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:get_storage/get_storage.dart';
+import 'package:get_storage/get_storage.dart';
 
 class GetStorePage extends StatelessWidget {
   const GetStorePage({Key? key}) : super(key: key);
@@ -16,6 +16,7 @@ class GetStorePage extends StatelessWidget {
           children: [
             ElevatedButton(onPressed: _saveData, child: const Text("存储")),
             ElevatedButton(onPressed: _readData, child: const Text("读取")),
+            ElevatedButton(onPressed: _removeData, child: const Text("删除")),
           ],
         ),
       ),
@@ -23,13 +24,17 @@ class GetStorePage extends StatelessWidget {
   }
 
   _saveData() {
-    // GetStorage box = GetStorage();
-    // box.write('quote', 'GetX is the best');
+    GetStorage box = GetStorage();
+    box.write('quote', 'GetX is the best');
   }
 
   _readData() {
-    // GetStorage box = GetStorage();
-    // debugPrint(box.read('quote'));
-// out: GetX is the best
+    GetStorage box = GetStorage();
+    debugPrint(box.read('quote'));
+  }
+
+  _removeData() {
+    GetStorage box = GetStorage();
+    box.remove('quote');
   }
 }

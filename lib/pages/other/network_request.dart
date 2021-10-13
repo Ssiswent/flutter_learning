@@ -1,11 +1,11 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/api/rest_client.dart';
 import 'package:flutter_learning/pages/other/product_list.dart';
 import 'package:get/get.dart';
-
-import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:dio/dio.dart';
-import 'package:flutter_learning/api/rest_client.dart';
 
 class NetworkRequestController extends GetxController {
   var msg = "暂无数据".obs;
@@ -47,8 +47,8 @@ class NetworkRequestController extends GetxController {
   }
 }
 
-class NetworkRequstPage extends StatelessWidget {
-  const NetworkRequstPage({Key? key}) : super(key: key);
+class NetworkRequestPage extends StatelessWidget {
+  const NetworkRequestPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,13 +64,9 @@ class NetworkRequstPage extends StatelessWidget {
             Obx(
               () => Text(c.msg.value),
             ),
-            ElevatedButton(
-                onPressed: c._getDioData, child: const Text("Get请求数据")),
-            ElevatedButton(
-                onPressed: c._postDioData, child: const Text("Post提交数据")),
-            ElevatedButton(
-                onPressed: () => Get.to(() => const ProductListPage()),
-                child: const Text("Get提交数据并渲染页面")),
+            ElevatedButton(onPressed: c._getDioData, child: const Text("Get请求数据")),
+            ElevatedButton(onPressed: c._postDioData, child: const Text("Post提交数据")),
+            ElevatedButton(onPressed: () => Get.to(() => const ProductListPage()), child: const Text("Get提交数据并渲染页面")),
           ],
         ),
       ),
