@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/pages/drawer/user.dart';
+import 'package:flutter_learning/theme/themes.dart';
 import 'package:flutter_learning/utils/extensions.dart';
 import 'package:get/get.dart';
 
@@ -23,6 +24,7 @@ class _MyDrawerState extends State<MyDrawer> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeController themeController = Get.put(ThemeController());
     return Drawer(
       child: Column(
         children: [
@@ -63,12 +65,21 @@ class _MyDrawerState extends State<MyDrawer> {
                   ListTile(
                     tileColor: _currentIndex == 0
                         ? ColorUtil.fromHex("#55FD6D50")
-                        : ColorUtil.fromHex("#FAFAFA"),
+                        : Colors.transparent,
                     contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    leading: const CircleAvatar(child: Icon(Icons.home)),
+                    leading: Obx(
+                      () => CircleAvatar(
+                        backgroundColor:
+                            Themes.colors[themeController.theme.value],
+                        child: const Icon(
+                          Icons.home,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                     title: const Text("我的空间"),
                     onTap: () {
                       Get.back();
@@ -85,7 +96,16 @@ class _MyDrawerState extends State<MyDrawer> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    leading: const CircleAvatar(child: Icon(Icons.people)),
+                    leading: Obx(
+                      () => CircleAvatar(
+                        backgroundColor:
+                            Themes.colors[themeController.theme.value],
+                        child: const Icon(
+                          Icons.people,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                     title: const Text("用户中心"),
                     onTap: () {
                       Get.back();
@@ -95,12 +115,21 @@ class _MyDrawerState extends State<MyDrawer> {
                   ListTile(
                     tileColor: _currentIndex == 2
                         ? ColorUtil.fromHex("#55FD6D50")
-                        : ColorUtil.fromHex("#FAFAFA"),
+                        : Colors.transparent,
                     contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    leading: const CircleAvatar(child: Icon(Icons.settings)),
+                    leading: Obx(
+                      () => CircleAvatar(
+                        backgroundColor:
+                            Themes.colors[themeController.theme.value],
+                        child: const Icon(
+                          Icons.settings,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                     title: const Text("设置中心"),
                     onTap: () {
                       Get.back();

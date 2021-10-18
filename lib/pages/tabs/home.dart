@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_learning/pages/other/date_picker.dart';
 import 'package:flutter_learning/pages/other/dialog.dart';
 import 'package:flutter_learning/pages/other/form.dart';
-import 'package:flutter_learning/pages/other/get_counter/view.dart';
+import 'package:flutter_learning/pages/other/get_other_func.dart';
 import 'package:flutter_learning/pages/other/get_state_counter/view.dart';
 import 'package:flutter_learning/pages/other/get_store.dart';
 import 'package:flutter_learning/pages/other/network_request.dart';
@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("首页"),
+        title: Text("home".tr),
         // backgroundColor: Colors.blue,
         leading: IconButton(
           icon: const Icon(Icons.menu),
@@ -129,8 +129,8 @@ class _HomePageState extends State<HomePage> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
-          title: const Text("跳转到GetX简单计数器页"),
-          onTap: () => Get.to(() => GetCounterPage()),
+          title: const Text("跳转到GetX简单计数器并传值页"),
+          onTap: () => Get.toNamed("/counter/34954"),
         ),
         const Divider(),
         ListTile(
@@ -151,6 +151,29 @@ class _HomePageState extends State<HomePage> {
           onTap: () => Get.to(() => GetStateCounterPage()),
         ),
         const Divider(),
+        ListTile(
+          contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          title: const Text("跳转到GetX包含Bindings和数据返回范例页"),
+          onTap: () async {
+            var data = await Get.toNamed(RouteConfig.getBindings);
+            if (data != null) {
+              debugPrint("点击次数为: ${data["count"]}");
+            }
+          },
+        ),
+        const Divider(),
+        ListTile(
+          contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          title: const Text("跳转到GetX其他功能页"),
+          onTap: () => Get.to(() => GetOtherFuncPage()),
+        ),
+        const Divider(),
         Column(
           children: list.map((e) => ListTile(title: e)).toList(),
         ),
@@ -159,7 +182,8 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
           child: ElevatedButton.icon(
             style: ButtonStyle(
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)))),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14)))),
             label: const Text("增加"),
             icon: const Icon(Icons.add_chart_outlined),
             onPressed: () {
@@ -184,7 +208,8 @@ class _HomePageState extends State<HomePage> {
     return Card(
       clipBehavior: Clip.antiAlias,
       elevation: 15,
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(14))),
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(14))),
       child: Column(
         children: [
           AspectRatio(
@@ -195,7 +220,8 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const ListTile(
-            leading: CircleAvatar(backgroundImage: AssetImage("images/img1.jpeg")),
+            leading:
+                CircleAvatar(backgroundImage: AssetImage("images/img1.jpeg")),
             title: Text("标题"),
             subtitle: Text("详情"),
           )

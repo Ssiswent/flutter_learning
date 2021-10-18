@@ -6,7 +6,6 @@ class GetJumpTwoLogic extends GetxController {
 
   @override
   void onReady() {
-    // TODO: implement onReady
     var map = Get.arguments;
     msg = map["msg"];
     update();

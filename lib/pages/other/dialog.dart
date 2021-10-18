@@ -42,11 +42,12 @@ class _DialogPageState extends State<DialogPage> {
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return const CustomDialog("关于我们", "内容");
-                    });
+                // showDialog(
+                //     context: context,
+                //     builder: (context) {
+                //       return const CustomDialog("关于我们", "内容");
+                //     });
+                Get.dialog(const CustomDialog("关于我们", "内容"));
               },
               child: const Text('关于我们'),
             ),
@@ -89,22 +90,32 @@ class _DialogPageState extends State<DialogPage> {
   // }
 
   void _showDialog() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text("标题"),
-            content: const Text("内容"),
-            actions: [
-              TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text("取消")),
-              TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text("确定")),
-            ],
-          );
-        });
+    // showDialog(
+    //     context: context,
+    //     builder: (context) {
+    //       return AlertDialog(
+    //         title: const Text("标题"),
+    //         content: const Text("内容"),
+    //         actions: [
+    //           TextButton(
+    //               onPressed: () => Navigator.pop(context),
+    //               child: const Text("取消")),
+    //           TextButton(
+    //               onPressed: () => Navigator.pop(context),
+    //               child: const Text("确定")),
+    //         ],
+    //       );
+    //     });
+    Get.dialog(AlertDialog(
+      title: const Text("标题"),
+      content: const Text("内容"),
+      actions: [
+        TextButton(
+            onPressed: () => Navigator.pop(context), child: const Text("取消")),
+        TextButton(
+            onPressed: () => Navigator.pop(context), child: const Text("确定")),
+      ],
+    ));
   }
 
   void _showSimpleDialog() {

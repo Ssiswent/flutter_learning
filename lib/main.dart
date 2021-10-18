@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/pages/tabs/tabs.dart';
 import 'package:flutter_learning/routes/routes.dart';
+import 'package:flutter_learning/theme/themes.dart';
 import 'package:flutter_learning/utils/extensions.dart';
+import 'package:flutter_learning/utils/translations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get/route_manager.dart';
+
 import 'package:get_storage/get_storage.dart';
+import 'package:get/get.dart';
 
 // main() => runApp(const MyApp());
 main() async {
@@ -12,17 +14,53 @@ main() async {
   runApp(const MyApp());
 }
 
+class MyAppController extends GetxController {
+  var darkMode = 0.obs;
+
+  @override
+  void onInit() {
+    GetStorage box = GetStorage();
+    var darkMode = box.read('DarkMode');
+    if (darkMode != null) {
+      this.darkMode(darkMode);
+    }
+    super.onInit();
+  }
+
+  changeDarkMode(int darkMode) {
+    this.darkMode(darkMode);
+    GetStorage box = GetStorage();
+    box.write('DarkMode', darkMode);
+  }
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final MyAppController myAppController = Get.put(MyAppController());
+    final ThemeController themeController = Get.put(ThemeController());
+    return Obx(() => myAppController.darkMode.value == 2
+        ? systemDarkModeApp(themeController)
+        : userDarkModeApp(myAppController, themeController));
+  }
+
+  GetMaterialApp systemDarkModeApp(ThemeController themeController) {
     return GetMaterialApp(
       // debugShowCheckedModeBanner: false,
       initialRoute: RouteConfig.main,
       getPages: RouteConfig.getPages,
+      defaultTransition: Transition.cupertino,
+      // routingCallback: (route) {
+      //   if (route != null) {
+      //     debugPrint("routingCallback: " + route.current);
+      //   }
+      // },
       title: 'Material App',
-      home: const Tabs(),
+      translations: MyTranslations(),
+      locale: const Locale('zh'),
+      // locale: window.locale,
       builder: (context, child) => Scaffold(
         body: GestureDetector(
           behavior: HitTestBehavior.translucent,
@@ -34,7 +72,14 @@ class MyApp extends StatelessWidget {
         ),
       ),
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        brightness: Brightness.light,
+        primarySwatch: Themes.colors[themeController.theme.value],
+        highlightColor: ColorUtil.fromHex("#55FD6D50"),
+        // splashColor: ColorUtil.fromHex("#55FD6D50"),
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        primarySwatch: Themes.colors[themeController.theme.value],
         highlightColor: ColorUtil.fromHex("#55FD6D50"),
         // splashColor: ColorUtil.fromHex("#55FD6D50"),
       ),
@@ -45,13 +90,59 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: const [
         Locale('zh', 'CH'),
-        Locale('en', 'US'),
+        // Locale('en', 'US'),
+      ],
+    );
+  }
+
+  GetMaterialApp userDarkModeApp(
+      MyAppController myAppController, ThemeController themeController) {
+    return GetMaterialApp(
+      // debugShowCheckedModeBanner: false,
+      initialRoute: RouteConfig.main,
+      getPages: RouteConfig.getPages,
+      defaultTransition: Transition.rightToLeft,
+      title: 'Material App',
+      translations: MyTranslations(),
+      locale: const Locale('zh'),
+      // locale: window.locale,
+      builder: (context, child) => Scaffold(
+        body: GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {
+            // 触摸收起键盘
+            hideKeyboard(context);
+          },
+          child: child,
+        ),
+      ),
+      theme: myAppController.darkMode.value == 1
+          ? ThemeData(
+              brightness: Brightness.dark,
+              primarySwatch: Themes.colors[themeController.theme.value],
+              highlightColor: ColorUtil.fromHex("#55FD6D50"),
+              // splashColor: ColorUtil.fromHex("#55FD6D50"),
+            )
+          : ThemeData(
+              brightness: Brightness.light,
+              primarySwatch: Themes.colors[themeController.theme.value],
+              highlightColor: ColorUtil.fromHex("#55FD6D50"),
+              // splashColor: ColorUtil.fromHex("#55FD6D50"),
+            ),
+      // 配置语言
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('zh', 'CH'),
+        // Locale('en', 'US'),
       ],
     );
   }
 }
 
-void hideKeyboard(BuildContext context) {
+hideKeyboard(BuildContext context) {
   FocusScopeNode currentFocus = FocusScope.of(context);
   if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
     FocusManager.instance.primaryFocus!.unfocus();

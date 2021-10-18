@@ -64,9 +64,13 @@ class NetworkRequestPage extends StatelessWidget {
             Obx(
               () => Text(c.msg.value),
             ),
-            ElevatedButton(onPressed: c._getDioData, child: const Text("Get请求数据")),
-            ElevatedButton(onPressed: c._postDioData, child: const Text("Post提交数据")),
-            ElevatedButton(onPressed: () => Get.to(() => const ProductListPage()), child: const Text("Get提交数据并渲染页面")),
+            ElevatedButton(
+                onPressed: c._getDioData, child: const Text("Get请求数据")),
+            ElevatedButton(
+                onPressed: c._postDioData, child: const Text("Post提交数据")),
+            ElevatedButton(
+                onPressed: () => Get.to(() => const ProductListPage()),
+                child: const Text("Get提交数据并渲染页面")),
           ],
         ),
       ),

@@ -11,7 +11,7 @@ class CustomDialog extends Dialog {
 
   @override
   Widget build(BuildContext context) {
-    _showTimer(context);
+    // _showTimer(context);
 
     return Material(
       type: MaterialType.transparency,
@@ -65,6 +65,7 @@ class CustomDialog extends Dialog {
     );
   }
 
+  // ignore: unused_element
   void _showTimer(context) {
     Timer.periodic(const Duration(seconds: 3), (timer) {
       Get.back();
