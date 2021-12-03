@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/components/round_underline_tab_indicator.dart';
+import 'package:flutter_learning/pages/other/fun/fun_view.dart';
 import 'package:flutter_learning/pages/user/login_register.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -50,13 +51,7 @@ class _SettingsPageState extends State<SettingsPage>
       controller: _tabController,
       children: [
         const LoginAndRegisterPage(),
-        ListView(
-          children: const [
-            ListTile(
-              title: Text("推荐"),
-            )
-          ],
-        )
+        FunPage(),
       ],
     );
   }

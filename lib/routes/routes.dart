@@ -1,3 +1,5 @@
+import 'package:flutter_learning/pages/other/fun/staggered_grid_view/staggered_grid_view_binding.dart';
+import 'package:flutter_learning/pages/other/fun/staggered_grid_view/staggered_grid_view_view.dart';
 import 'package:flutter_learning/pages/other/get_bindings/get_bindings_binding.dart';
 import 'package:flutter_learning/pages/other/get_bindings/get_bindings_view.dart';
 import 'package:flutter_learning/pages/other/get_counter/view.dart';
@@ -15,6 +17,8 @@ class RouteConfig {
   static const String getJumpTwo = "/jumpOne/jumpTwo";
   static const String getBindings = "/bindings";
 
+  static const String staggeredGridView = "/staggeredGridView";
+
   /// 别名映射页面
   static final List<GetPage> getPages = [
     GetPage(name: main, page: () => const Tabs()),
@@ -25,6 +29,11 @@ class RouteConfig {
       name: getBindings,
       page: () => const GetBindingsPage(),
       binding: GetBindingsBinding(),
+    ),
+    GetPage(
+      name: staggeredGridView,
+      page: () => StaggeredGridViewPage(),
+      binding: StaggeredGridViewBinding(),
     ),
   ];
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/components/round_underline_tab_indicator.dart';
+import 'package:flutter_learning/pages/other/animations/animations_view.dart';
 import 'package:flutter_learning/pages/other/grid_view.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -36,7 +37,7 @@ class _CategoryPageState extends State<CategoryPage> {
                 color: Colors.white,
               ),
             ),
-            tabs: [Tab(text: "GridView"), Tab(text: "推荐")],
+            tabs: [Tab(text: "GridView"), Tab(text: "动画")],
           ),
         ),
         body: getBody(),
@@ -48,13 +49,7 @@ class _CategoryPageState extends State<CategoryPage> {
     return TabBarView(
       children: [
         const GridViewPage(),
-        ListView(
-          children: const [
-            ListTile(
-              title: Text("推荐"),
-            )
-          ],
-        )
+        AnimationsPage(),
       ],
     );
   }
