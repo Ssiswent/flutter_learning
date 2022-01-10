@@ -12,20 +12,65 @@ class FunPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(10),
-        child: ListView(
+        child: Column(
           children: [
-            ListTile(
-              contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              title: const Text("StaggeredGridView"),
+            ListItem(
+              context,
+              title: "StaggeredGridView",
               onTap: controller.toStaggeredGridViewPage,
             ),
-            const Divider(),
+            ListItem(
+              context,
+              title: "Expandable",
+              onTap: controller.toExpandablePage,
+            ),
+            ListItem(
+              context,
+              title: "FlutterInnerDrawer",
+              onTap: controller.toInnerDrawerPage,
+            ),
+            ListItem(
+              context,
+              title: "FloatingSearchBar",
+              onTap: () => controller.toFloatingSearchBarPage(context),
+            ),
+            ListItem(
+              context,
+              title: "LottiePage",
+              onTap: controller.toLottiePage,
+            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class ListItem extends StatelessWidget {
+  const ListItem(
+    context, {
+    Key? key,
+    required this.title,
+    this.onTap,
+  }) : super(key: key);
+
+  final String title;
+  final GestureTapCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ListTile(
+          contentPadding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          title: Text(title),
+          onTap: onTap,
+        ),
+        const Divider(),
+      ],
     );
   }
 }
