@@ -33,7 +33,7 @@ class PersistentTabsPage extends GetView<PersistentTabsController> {
         itemAnimationProperties: const ItemAnimationProperties(
           // Navigation Bar's items animation properties.
           duration: Duration(milliseconds: 200),
-          curve: Curves.ease, 
+          curve: Curves.ease,
         ),
         screenTransitionAnimation: const ScreenTransitionAnimation(
           // Screen transition animation on change of selected tab.

@@ -12,7 +12,7 @@ class FunPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(10),
-        child: Column(
+        child: ListView(
           children: [
             ListItem(
               context,
@@ -38,6 +38,31 @@ class FunPage extends StatelessWidget {
               context,
               title: "LottiePage",
               onTap: controller.toLottiePage,
+            ),
+            ListItem(
+              context,
+              title: "FlutterSlidablePage",
+              onTap: controller.toFlutterSlidablePage,
+            ),
+            ListItem(
+              context,
+              title: "ImplicitlyAnimatedReorderableList",
+              onTap: controller.toImplicitlyAnimatedReorderableList,
+            ),
+            ListItem(
+              context,
+              title: "SignatureExample",
+              onTap: controller.toSignatureExample,
+            ),
+            ListItem(
+              context,
+              title: "RatingBar",
+              onTap: controller.toRatingBar,
+            ),
+            ListItem(
+              context,
+              title: "PercentIndicator",
+              onTap: controller.toPercentIndicator,
             ),
           ],
         ),

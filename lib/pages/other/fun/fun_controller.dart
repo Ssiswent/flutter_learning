@@ -45,33 +45,24 @@ class FunController extends GetxController {
   toLottiePage() {
     Get.to(() => LottiePage());
   }
-}
 
-class AnimationController1 extends GetxController
-    with SingleGetTickerProviderMixin {
-  late Animation animation;
-  late AnimationController _animationController;
-
-  @override
-  void onInit() {
-    super.onInit();
-
-    _animationController = AnimationController(vsync: this);
-    _animationController.repeat(reverse: true);
-
-    animation = Tween(begin: 2.0, end: 15.0).animate(_animationController)
-      ..addListener(() => update());
+  toFlutterSlidablePage() {
+    Get.toNamed(RouteConfig.flutterSlidablePage);
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  toImplicitlyAnimatedReorderableList() {
+    Get.toNamed(RouteConfig.implicitlyAnimatedReorderableList);
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  toSignatureExample() {
+    Get.toNamed(RouteConfig.signatureExample);
+  }
 
-    _animationController.dispose();
+  toRatingBar() {
+    Get.toNamed(RouteConfig.ratingBar);
+  }
+
+  toPercentIndicator() {
+    Get.toNamed(RouteConfig.percentIndicator);
   }
 }

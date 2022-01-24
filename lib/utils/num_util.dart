@@ -1,6 +1,5 @@
 import 'package:decimal/decimal.dart';
 
-
 /// Num Util.
 class NumUtil {
   /// The parameter [fractionDigits] must be an integer satisfying: `0 <= fractionDigits <= 20`.
@@ -153,8 +152,6 @@ class NumUtil {
     return Decimal.parse(a) >= Decimal.parse(b);
   }
 }
-
-
 
 extension DoubleUtil on double {
   double max(double? value) {
