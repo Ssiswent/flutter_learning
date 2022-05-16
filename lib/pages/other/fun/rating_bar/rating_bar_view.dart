@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/utils/widget_util.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -27,7 +28,9 @@ class RatingBarPage extends GetView<RatingBarController> {
               color: Colors.amber,
             ),
             onRatingUpdate: (rating) {
-              print(rating);
+              if (kDebugMode) {
+                print(rating);
+              }
             },
           ).prop(margins: [16]),
           RatingBar(
@@ -52,7 +55,9 @@ class RatingBarPage extends GetView<RatingBarController> {
             ),
             itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
             onRatingUpdate: (rating) {
-              print(rating);
+              if (kDebugMode) {
+                print(rating);
+              }
             },
           ).prop(margins: [16]),
           RatingBar.builder(
@@ -93,7 +98,9 @@ class RatingBarPage extends GetView<RatingBarController> {
               }
             },
             onRatingUpdate: (rating) {
-              print(rating);
+              if (kDebugMode) {
+                print(rating);
+              }
             },
           ).prop(margins: [16]),
         ],

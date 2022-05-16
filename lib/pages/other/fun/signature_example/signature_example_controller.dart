@@ -7,11 +7,6 @@ class SignatureExampleController extends GetxController {
   Image? exportedImg;
 
   @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
   void onReady() {}
 
   @override

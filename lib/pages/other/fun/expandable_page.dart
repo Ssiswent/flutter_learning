@@ -25,7 +25,7 @@ class MyHomePageState extends State<MyHomePage> {
         ),
         child: ListView(
           physics: const BouncingScrollPhysics(),
-          children: <Widget>[
+          children: const [
             Card1(),
             Card2(),
             Card3(),
@@ -65,7 +65,7 @@ class Card1 extends StatelessWidget {
               scrollOnExpand: true,
               scrollOnCollapse: false,
               child: Padding(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: ExpandablePanel(
                   theme: const ExpandableThemeData(
                     headerAlignment: ExpandablePanelHeaderAlignment.center,
@@ -118,6 +118,8 @@ class Card1 extends StatelessWidget {
 }
 
 class Card2 extends StatelessWidget {
+  const Card2({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     buildImg(Color color, double height) {
@@ -136,10 +138,10 @@ class Card2 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+                children: const [
                   Text(
                     "Expandable",
                     // style: Theme.of(context).textTheme.body1,
@@ -163,11 +165,11 @@ class Card2 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
+                children: [
+                  const Text(
                     "Expandable",
                     // style: Theme.of(context).textTheme.body1,
                   ),
@@ -203,10 +205,10 @@ class Card2 extends StatelessWidget {
 
     buildExpanded3() {
       return Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+          children: const [
             Text(
               loremIpsum,
               softWrap: true,
@@ -237,9 +239,7 @@ class Card2 extends StatelessWidget {
                 collapsed: buildCollapsed3(),
                 expanded: buildExpanded3(),
               ),
-              Divider(
-                height: 1,
-              ),
+              const Divider(height: 1),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
@@ -272,6 +272,8 @@ class Card2 extends StatelessWidget {
 }
 
 class Card3 extends StatelessWidget {
+  const Card3({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     buildItem(String label) {
@@ -284,7 +286,7 @@ class Card3 extends StatelessWidget {
     buildList() {
       return Column(
         children: <Widget>[
-          for (var i in [1, 2, 3, 4]) buildItem("Item ${i}"),
+          for (var i in [1, 2, 3, 4]) buildItem("Item $i"),
         ],
       );
     }
@@ -351,16 +353,16 @@ class Card4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: ExpandablePanel(
-        header: Text("header"),
-        collapsed: Text(
+        header: const Text("header"),
+        collapsed: const Text(
           loremIpsum,
           softWrap: true,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),
-        expanded: Text(
+        expanded: const Text(
           loremIpsum,
           softWrap: true,
         ),

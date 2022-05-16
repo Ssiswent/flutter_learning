@@ -1,6 +1,5 @@
 import 'package:flutter_learning/pages/other/fun/material_floating_search_bar_view.dart';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class FloatingSearchBarGetController extends GetxController {

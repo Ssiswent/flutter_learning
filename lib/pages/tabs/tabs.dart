@@ -9,8 +9,6 @@ import 'home.dart';
 import 'category.dart';
 import 'settings.dart';
 
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-
 class Tabs extends StatefulWidget {
   final int index;
   const Tabs({Key? key, this.index = 0}) : super(key: key);

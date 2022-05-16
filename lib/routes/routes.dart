@@ -1,15 +1,25 @@
+import 'package:flutter_learning/pages/other/fun/audio_services/audio_services_binding.dart';
+import 'package:flutter_learning/pages/other/fun/audio_services/audio_services_view.dart';
+import 'package:flutter_learning/pages/other/fun/extended_image_example/extended_image_example_binding.dart';
+import 'package:flutter_learning/pages/other/fun/extended_image_example/extended_image_example_view.dart';
 import 'package:flutter_learning/pages/other/fun/flutter_slidable/flutter_slidable_binding.dart';
 import 'package:flutter_learning/pages/other/fun/flutter_slidable/flutter_slidable_view.dart';
 import 'package:flutter_learning/pages/other/fun/implicitly_animated_reorderable_list/implicitly_animated_reorderable_list_binding.dart';
 import 'package:flutter_learning/pages/other/fun/implicitly_animated_reorderable_list/implicitly_animated_reorderable_list_view.dart';
+import 'package:flutter_learning/pages/other/fun/my_slider_list/my_slider_list_binding.dart';
+import 'package:flutter_learning/pages/other/fun/my_slider_list/my_slider_list_view.dart';
 import 'package:flutter_learning/pages/other/fun/percent_indicator/percent_indicator_binding.dart';
 import 'package:flutter_learning/pages/other/fun/percent_indicator/percent_indicator_view.dart';
 import 'package:flutter_learning/pages/other/fun/rating_bar/rating_bar_binding.dart';
 import 'package:flutter_learning/pages/other/fun/rating_bar/rating_bar_view.dart';
 import 'package:flutter_learning/pages/other/fun/signature_example/signature_example_binding.dart';
 import 'package:flutter_learning/pages/other/fun/signature_example/signature_example_view.dart';
+import 'package:flutter_learning/pages/other/fun/slider_button/slider_button_binding.dart';
+import 'package:flutter_learning/pages/other/fun/slider_button/slider_button_view.dart';
 import 'package:flutter_learning/pages/other/fun/staggered_grid_view/staggered_grid_view_binding.dart';
 import 'package:flutter_learning/pages/other/fun/staggered_grid_view/staggered_grid_view_view.dart';
+import 'package:flutter_learning/pages/other/fun/styled_datepicker/styled_datepicker_binding.dart';
+import 'package:flutter_learning/pages/other/fun/styled_datepicker/styled_datepicker_view.dart';
 import 'package:flutter_learning/pages/other/get_bindings/get_bindings_binding.dart';
 import 'package:flutter_learning/pages/other/get_bindings/get_bindings_view.dart';
 import 'package:flutter_learning/pages/other/get_counter/view.dart';
@@ -17,9 +27,6 @@ import 'package:flutter_learning/pages/other/get_jump/get_jump_one/view.dart';
 import 'package:flutter_learning/pages/other/get_jump/get_jump_two/view.dart';
 import 'package:flutter_learning/pages/tabs/persistent_lottie_tabs/persistent_lottie_tabs_binding.dart';
 import 'package:flutter_learning/pages/tabs/persistent_lottie_tabs/persistent_lottie_tabs_view.dart';
-import 'package:flutter_learning/pages/tabs/persistent_tabs/persistent_tabs_binding.dart';
-import 'package:flutter_learning/pages/tabs/persistent_tabs/persistent_tabs_view.dart';
-import 'package:flutter_learning/pages/tabs/tabs.dart';
 import 'package:get/get.dart';
 
 class RouteConfig {
@@ -38,6 +45,11 @@ class RouteConfig {
   static const String signatureExample = "/signatureExample";
   static const String ratingBar = "/ratingBar";
   static const String percentIndicator = "/percentIndicator";
+  static const String syncfusionDatepicker = "/syncfusionDatepicker";
+  static const String sliderButton = "/sliderButton";
+  static const String mySliderList = "/mySliderList";
+  static const String audioService = "/audioService";
+  static const String extendedImage = "/extendedImage";
 
   /// 别名映射页面
   static final List<GetPage> getPages = [
@@ -89,6 +101,31 @@ class RouteConfig {
       name: percentIndicator,
       page: () => const PercentIndicatorPage(),
       binding: PercentIndicatorBinding(),
+    ),
+    GetPage(
+      name: syncfusionDatepicker,
+      page: () => const StyledDatepickerPage(),
+      binding: StyledDatepickerBinding(),
+    ),
+    GetPage(
+      name: sliderButton,
+      page: () => const SliderButtonPage(),
+      binding: SliderButtonBinding(),
+    ),
+    GetPage(
+      name: mySliderList,
+      page: () => const MySliderListPage(),
+      binding: MySliderListBinding(),
+    ),
+    GetPage(
+      name: audioService,
+      page: () => const AudioServicesPage(),
+      binding: AudioServicesBinding(),
+    ),
+    GetPage(
+      name: extendedImage,
+      page: () => const ExtendedImageExamplePage(),
+      binding: ExtendedImageExampleBinding(),
     ),
   ];
 }

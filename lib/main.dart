@@ -1,9 +1,12 @@
+import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_learning/pages/other/fun/audio_services/audio_player_handler.dart';
 import 'package:flutter_learning/routes/routes.dart';
 import 'package:flutter_learning/theme/themes.dart';
 import 'package:flutter_learning/utils/extensions.dart';
 import 'package:flutter_learning/utils/translations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:syncfusion_localizations/syncfusion_localizations.dart';
 
 import 'package:get_storage/get_storage.dart';
 import 'package:get/get.dart';
@@ -16,9 +19,18 @@ main() async {
 
 class MyAppController extends GetxController {
   var darkMode = 0.obs;
+  late AudioPlayerHandler audioHandler;
 
   @override
-  void onInit() {
+  void onInit() async {
+    audioHandler = await AudioService.init(
+      builder: () => AudioPlayerHandler(),
+      config: const AudioServiceConfig(
+        androidNotificationChannelId: 'com.ryanheise.myapp.channel.audio',
+        androidNotificationChannelName: 'Audio playback',
+        androidNotificationOngoing: true,
+      ),
+    );
     GetStorage box = GetStorage();
     var darkMode = box.read('DarkMode');
     if (darkMode != null) {
@@ -87,6 +99,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        SfGlobalLocalizations.delegate,
       ],
       supportedLocales: const [
         Locale('zh', 'CH'),
@@ -133,6 +146,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        SfGlobalLocalizations.delegate,
       ],
       supportedLocales: const [
         Locale('zh', 'CH'),

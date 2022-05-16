@@ -54,9 +54,9 @@ class Reviews1 {
       username: 'Jhonn Lennon',
       urlImage: 'assets/biografia.png',
       description:
-          'John Winston Lennon nació una noche en que Liverpool sufría un ataque aéreo alemán. Su padre era marino mercante y estaba fuera de casa con frecuencia. Siendo aún muy pequeño, su madre le dejó al cuidado de su hermana para irse a vivir con otro hombre.' +
-              'En el colegio, John Lennon no era buen alumno y mostraba tener un carácter rebelde haciendo el payaso en clase. A pesar de los esfuerzos de su tía por que terminara sus estudios, no llegó a concluirlos.' +
-              'Ya en 1956 formó su primera banda, llamada The Quarrymen, y al año siguiente conoció a Paul McCartney, que se unió al grupo, que pronto se llamó The Beatles.',
+          'John Winston Lennon nació una noche en que Liverpool sufría un ataque aéreo alemán. Su padre era marino mercante y estaba fuera de casa con frecuencia. Siendo aún muy pequeño, su madre le dejó al cuidado de su hermana para irse a vivir con otro hombre.'
+          'En el colegio, John Lennon no era buen alumno y mostraba tener un carácter rebelde haciendo el payaso en clase. A pesar de los esfuerzos de su tía por que terminara sus estudios, no llegó a concluirlos.'
+          'Ya en 1956 formó su primera banda, llamada The Quarrymen, y al año siguiente conoció a Paul McCartney, que se unió al grupo, que pronto se llamó The Beatles.',
     ),
     Review(
       date: 'años 1970 y 1980',

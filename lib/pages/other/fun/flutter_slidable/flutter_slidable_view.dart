@@ -110,7 +110,7 @@ class SlidableItem extends StatelessWidget {
 
       // The end action pane is the one at the right or the bottom side.
       endActionPane: ActionPane(
-        motion: ScrollMotion(),
+        motion: const ScrollMotion(),
         children: [
           SlidableAction(
             // An action can be bigger than the others.

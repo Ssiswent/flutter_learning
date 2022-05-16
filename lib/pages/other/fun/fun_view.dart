@@ -64,6 +64,31 @@ class FunPage extends StatelessWidget {
               title: "PercentIndicator",
               onTap: controller.toPercentIndicator,
             ),
+            ListItem(
+              context,
+              title: "SyncfusionDatepicker",
+              onTap: controller.toSyncfusionDatepicker,
+            ),
+            ListItem(
+              context,
+              title: "SliderButton",
+              onTap: controller.toSliderButton,
+            ),
+            ListItem(
+              context,
+              title: "MySliderList",
+              onTap: controller.toMySliderList,
+            ),
+            ListItem(
+              context,
+              title: "AudioService",
+              onTap: controller.toAudioService,
+            ),
+            ListItem(
+              context,
+              title: "ExtendedImage",
+              onTap: controller.toExtendedImage,
+            ),
           ],
         ),
       ),

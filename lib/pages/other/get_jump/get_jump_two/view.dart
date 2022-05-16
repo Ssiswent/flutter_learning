@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/pages/other/get_jump/get_jump_one/logic.dart';
 import 'package:get/get.dart';

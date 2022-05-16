@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class PercentIndicatorController extends GetxController {
+class SliderButtonController extends GetxController {
   final count = 0.obs;
 
   @override

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_learning/pages/other/fun/expandable_page.dart';
 import 'package:flutter_learning/pages/other/fun/flutter_inner_drawer.dart';
 import 'package:flutter_learning/routes/routes.dart';
@@ -9,11 +8,6 @@ import 'lottie_view.dart';
 import 'material_floating_search_bar_view.dart';
 
 class FunController extends GetxController {
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
   @override
   void onReady() {}
 
@@ -64,5 +58,25 @@ class FunController extends GetxController {
 
   toPercentIndicator() {
     Get.toNamed(RouteConfig.percentIndicator);
+  }
+
+  toSyncfusionDatepicker() {
+    Get.toNamed(RouteConfig.syncfusionDatepicker);
+  }
+
+  toSliderButton() {
+    Get.toNamed(RouteConfig.sliderButton);
+  }
+
+  toMySliderList() {
+    Get.toNamed(RouteConfig.mySliderList);
+  }
+
+  toAudioService() {
+    Get.toNamed(RouteConfig.audioService);
+  }
+
+  toExtendedImage() {
+    Get.toNamed(RouteConfig.extendedImage);
   }
 }

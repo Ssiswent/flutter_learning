@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_learning/utils/extensions.dart';
 import 'package:get/get.dart';
@@ -20,8 +18,8 @@ class MySignaturePage extends StatelessWidget {
 
   final controller = Get.put(MySignatureController());
 
-  final biggerCallback; // 放大回调
-  final resetCallback; // 还原大小回调
+  final VoidCallback? biggerCallback; // 放大回调
+  final VoidCallback? resetCallback; // 还原大小回调
   final ValueSetter<Image?> exportCallback; // 导出回调
   final double width;
   final double height;
@@ -80,7 +78,9 @@ class MySignaturePage extends StatelessWidget {
                   onTap: () {
                     controller.editBtnClicked(exportCallback);
                     if (landScape) {
-                      resetCallback();
+                      if (resetCallback != null) {
+                        resetCallback!();
+                      }
                     }
                   },
                   bgColor: Colors.blue,
@@ -95,8 +95,13 @@ class MySignaturePage extends StatelessWidget {
                 right: 0,
                 child: Offstage(
                   offstage: landScape || !controller.canEdit,
-                  child: const Icon(Icons.fullscreen_rounded)
-                      .prop(onTap: biggerCallback, paddings: [10]),
+                  child: const Icon(Icons.fullscreen_rounded).prop(
+                      onTap: () {
+                        if (biggerCallback != null) {
+                          biggerCallback!();
+                        }
+                      },
+                      paddings: [10]),
                 ),
               ),
               // 橡皮按钮

@@ -30,6 +30,7 @@ class _CategoryPageState extends State<CategoryPage> {
           // ),
           // backgroundColor: Colors.cyan,
           title: const TabBar(
+            // isScrollable: true,
             indicator: RoundUnderlineTabIndicator(
               indicatorWidth: 40,
               borderSide: BorderSide(

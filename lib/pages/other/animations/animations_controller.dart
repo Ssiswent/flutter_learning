@@ -3,11 +3,6 @@ import 'package:get/get.dart';
 
 class AnimationsController extends GetxController {
   @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
   void onReady() {}
 
   @override

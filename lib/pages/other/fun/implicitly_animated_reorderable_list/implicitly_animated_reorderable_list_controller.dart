@@ -36,11 +36,6 @@ class ImplicitlyAnimatedReorderableListController extends GetxController {
   ScrollController scrollController = ScrollController();
 
   @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
   void onReady() {}
 
   @override

@@ -35,11 +35,6 @@ class FlutterSlidableController extends GetxController {
   bool has3 = true;
 
   @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
   void onReady() {}
 
   @override
