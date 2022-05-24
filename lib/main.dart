@@ -1,9 +1,11 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_learning/pages/other/fun/audio_services/audio_player_handler.dart';
 import 'package:flutter_learning/routes/routes.dart';
 import 'package:flutter_learning/theme/themes.dart';
 import 'package:flutter_learning/utils/extensions.dart';
+import 'package:flutter_learning/utils/platform_utils.dart';
 import 'package:flutter_learning/utils/translations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:syncfusion_localizations/syncfusion_localizations.dart';
@@ -14,6 +16,7 @@ import 'package:get/get.dart';
 // main() => runApp(const MyApp());
 main() async {
   await GetStorage.init();
+  setAndroidStyle();
   runApp(const MyApp());
 }
 
@@ -97,13 +100,12 @@ class MyApp extends StatelessWidget {
       ),
       // 配置语言
       localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        SfGlobalLocalizations.delegate,
+        ...GlobalMaterialLocalizations.delegates,
+        ...SfGlobalLocalizations.delegates,
       ],
       supportedLocales: const [
         Locale('zh', 'CH'),
-        // Locale('en', 'US'),
+        Locale('en', 'US'),
       ],
     );
   }
@@ -144,13 +146,12 @@ class MyApp extends StatelessWidget {
             ),
       // 配置语言
       localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        SfGlobalLocalizations.delegate,
+        ...GlobalMaterialLocalizations.delegates,
+        ...SfGlobalLocalizations.delegates,
       ],
       supportedLocales: const [
         Locale('zh', 'CH'),
-        // Locale('en', 'US'),
+        Locale('en', 'US'),
       ],
     );
   }
@@ -160,5 +161,21 @@ hideKeyboard(BuildContext context) {
   FocusScopeNode currentFocus = FocusScope.of(context);
   if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
     FocusManager.instance.primaryFocus!.unfocus();
+  }
+}
+
+setAndroidStyle() {
+  if (PlatformUtils.isAndroid) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+        systemNavigationBarColor: Colors.transparent,
+        systemNavigationBarContrastEnforced: true,
+        systemNavigationBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
+      ),
+    );
   }
 }

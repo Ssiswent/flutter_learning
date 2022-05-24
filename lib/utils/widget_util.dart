@@ -210,7 +210,7 @@ class WidgetUtil {
   void asyncPrepare(
       BuildContext context, bool isOnce, ValueChanged<Rect>? onCallBack) {
     if (_hasMeasured) return;
-    WidgetsBinding.instance?.addPostFrameCallback((Duration timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((Duration timeStamp) {
       RenderBox? box = getRenderBox(context);
       if (box != null) {
         if (isOnce) _hasMeasured = true;
@@ -228,7 +228,7 @@ class WidgetUtil {
   /// Widget渲染监听.
   void asyncPrepares(bool isOnce, ValueChanged<Rect>? onCallBack) {
     if (_hasMeasured) return;
-    WidgetsBinding.instance?.addPostFrameCallback((Duration timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((Duration timeStamp) {
       if (isOnce) _hasMeasured = true;
       if (onCallBack != null) onCallBack(Rect.zero);
     });
