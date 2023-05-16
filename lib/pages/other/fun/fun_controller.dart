@@ -79,4 +79,8 @@ class FunController extends GetxController {
   toExtendedImage() {
     Get.toNamed(RouteConfig.extendedImage);
   }
+
+  toFocusPage() {
+    Get.toNamed(RouteConfig.focus);
+  }
 }

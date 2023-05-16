@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LottieController extends GetxController
-    with SingleGetTickerProviderMixin {
+class LottieController extends GetxController with SingleGetTickerProviderMixin {
   late AnimationController animationController;
 
   @override

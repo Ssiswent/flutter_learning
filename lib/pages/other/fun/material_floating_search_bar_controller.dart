@@ -1,6 +1,6 @@
 import 'package:flutter_learning/pages/other/fun/material_floating_search_bar_view.dart';
 import 'package:get/get.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
+import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
 
 class FloatingSearchBarGetController extends GetxController {
   final searchController = FloatingSearchBarController();
@@ -41,8 +41,7 @@ class FloatingSearchBarGetController extends GetxController {
 
   void onQueryChanged(String query) {
     var lowerQ = query.toLowerCase();
-    newNames =
-        _names.where((name) => name.toLowerCase().contains(lowerQ)).toList();
+    newNames = _names.where((name) => name.toLowerCase().contains(lowerQ)).toList();
     update();
   }
 

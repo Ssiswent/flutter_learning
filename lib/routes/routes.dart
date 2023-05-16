@@ -4,6 +4,8 @@ import 'package:flutter_learning/pages/other/fun/extended_image_example/extended
 import 'package:flutter_learning/pages/other/fun/extended_image_example/extended_image_example_view.dart';
 import 'package:flutter_learning/pages/other/fun/flutter_slidable/flutter_slidable_binding.dart';
 import 'package:flutter_learning/pages/other/fun/flutter_slidable/flutter_slidable_view.dart';
+import 'package:flutter_learning/pages/other/fun/focus/focus_binding.dart';
+import 'package:flutter_learning/pages/other/fun/focus/focus_view.dart';
 import 'package:flutter_learning/pages/other/fun/implicitly_animated_reorderable_list/implicitly_animated_reorderable_list_binding.dart';
 import 'package:flutter_learning/pages/other/fun/implicitly_animated_reorderable_list/implicitly_animated_reorderable_list_view.dart';
 import 'package:flutter_learning/pages/other/fun/my_slider_list/my_slider_list_binding.dart';
@@ -50,6 +52,8 @@ class RouteConfig {
   static const String mySliderList = "/mySliderList";
   static const String audioService = "/audioService";
   static const String extendedImage = "/extendedImage";
+
+  static const String focus = "/focus";
 
   /// 别名映射页面
   static final List<GetPage> getPages = [
@@ -126,6 +130,11 @@ class RouteConfig {
       name: extendedImage,
       page: () => const ExtendedImageExamplePage(),
       binding: ExtendedImageExampleBinding(),
+    ),
+    GetPage(
+      name: focus,
+      page: () => const FocusPage(),
+      binding: FocusBinding(),
     ),
   ];
 }

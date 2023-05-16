@@ -28,8 +28,8 @@ class _MyDrawerState extends State<MyDrawer> {
     return Drawer(
       child: Column(
         children: [
-          Row(
-            children: const [
+          const Row(
+            children: [
               Expanded(
                 child: UserAccountsDrawerHeader(
                   currentAccountPicture: CircleAvatar(

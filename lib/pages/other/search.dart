@@ -11,9 +11,9 @@ class SearchPage extends StatelessWidget {
         ),
         body: Container(
           padding: const EdgeInsets.all(10),
-          child: Wrap(
+          child: const Wrap(
             spacing: 10,
-            children: const [
+            children: [
               MyButton(title: "第一集"),
               MyButton(title: "第一集第二部分"),
               MyButton(title: "第二集"),

@@ -134,14 +134,14 @@ class Card2 extends StatelessWidget {
     }
 
     buildCollapsed1() {
-      return Column(
+      return const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
                     "Expandable",
                     // style: Theme.of(context).textTheme.body1,
@@ -175,7 +175,7 @@ class Card2 extends StatelessWidget {
                   ),
                   Text(
                     "3 Expandable widgets",
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
               ),
@@ -204,11 +204,11 @@ class Card2 extends StatelessWidget {
     }
 
     buildExpanded3() {
-      return Padding(
-        padding: const EdgeInsets.all(10),
+      return const Padding(
+        padding: EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Text(
               loremIpsum,
               softWrap: true,
@@ -252,7 +252,7 @@ class Card2 extends StatelessWidget {
                           controller.expanded ? "COLLAPSE" : "EXPAND",
                           style: Theme.of(context)
                               .textTheme
-                              .button!
+                              .labelLarge!
                               .copyWith(color: Colors.deepPurple),
                         ),
                         onPressed: () {
@@ -328,7 +328,7 @@ class Card3 extends StatelessWidget {
                             "Items",
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .copyWith(color: Colors.white),
                           ),
                         ),

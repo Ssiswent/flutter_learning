@@ -110,8 +110,7 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  GetMaterialApp userDarkModeApp(
-      MyAppController myAppController, ThemeController themeController) {
+  GetMaterialApp userDarkModeApp(MyAppController myAppController, ThemeController themeController) {
     return GetMaterialApp(
       // debugShowCheckedModeBanner: false,
       initialRoute: RouteConfig.main,
@@ -160,7 +159,7 @@ class MyApp extends StatelessWidget {
 hideKeyboard(BuildContext context) {
   FocusScopeNode currentFocus = FocusScope.of(context);
   if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
-    FocusManager.instance.primaryFocus!.unfocus();
+    FocusManager.instance.primaryFocus?.unfocus();
   }
 }
 

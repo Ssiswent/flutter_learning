@@ -5,29 +5,30 @@ import 'package:flutter_learning/components/custom_tap_effect.dart';
 import 'package:get/utils.dart';
 
 extension CustomWrap on Widget {
-  Widget prop(
-      {double? width,
-      double? height,
-      List<double>? margins,
-      List<double>? paddings,
-      Decoration? decoration,
-      Color? bgColor,
-      String bgUrl = '',
-      List<double>? borderRadius,
-      double? opacity,
-      int expanded = 0,
-      Function()? onTap,
-      Function()? onLongPress,
-      bool clickEffect = true,
-      bool? borderless,
-      double? borderlessSize,
-      bool? rippleInShape,
-      bool? gone,
-      bool? hide,
-      double? blur,
-      BoxBorder? border,
-      double elevation = 0.0,
-      Color shadowColor = const Color(0xFF000000)}) {
+  Widget prop({
+    double? width,
+    double? height,
+    List<double>? margins,
+    List<double>? paddings,
+    Decoration? decoration,
+    Color? bgColor,
+    String bgUrl = '',
+    List<double>? borderRadius,
+    double? opacity,
+    int expanded = 0,
+    Function()? onTap,
+    Function()? onLongPress,
+    bool clickEffect = true,
+    bool? borderless,
+    double? borderlessSize,
+    bool? rippleInShape,
+    bool? gone,
+    bool? hide,
+    double? blur,
+    BoxBorder? border,
+    double elevation = 0.0,
+    Color shadowColor = const Color(0xFF000000),
+  }) {
     bool hasClick = onTap != null || onLongPress != null;
     BorderRadius? innerbr;
     if (borderRadius != null) {
@@ -40,12 +41,10 @@ extension CustomWrap on Widget {
               bottomLeft: Radius.circular(borderRadius[3]));
     }
     if (bgColor != null || bgUrl != '' || innerbr != null || border != null) {
-      DecorationImage? netImage = bgUrl.startsWith("http")
-          ? DecorationImage(image: NetworkImage(bgUrl), fit: BoxFit.fill)
-          : null;
-      DecorationImage? localImage = bgUrl != '' && !bgUrl.startsWith("http")
-          ? DecorationImage(image: AssetImage(bgUrl), fit: BoxFit.fill)
-          : null;
+      DecorationImage? netImage =
+          bgUrl.startsWith("http") ? DecorationImage(image: NetworkImage(bgUrl), fit: BoxFit.fill) : null;
+      DecorationImage? localImage =
+          bgUrl != '' && !bgUrl.startsWith("http") ? DecorationImage(image: AssetImage(bgUrl), fit: BoxFit.fill) : null;
       decoration = BoxDecoration(
         color: bgColor,
         image: netImage ?? localImage,
@@ -65,8 +64,7 @@ extension CustomWrap on Widget {
         ? const EdgeInsets.all(0)
         : margins.length == 1
             ? EdgeInsets.all(margins[0])
-            : EdgeInsets.fromLTRB(
-                margins[0], margins[1], margins[2], margins[3]);
+            : EdgeInsets.fromLTRB(margins[0], margins[1], margins[2], margins[3]);
 
     view = Container(
       width: width,
@@ -78,8 +76,7 @@ extension CustomWrap on Widget {
           ? const EdgeInsets.all(0)
           : paddings.length == 1
               ? EdgeInsets.all(paddings[0])
-              : EdgeInsets.fromLTRB(
-                  paddings[0], paddings[1], paddings[2], paddings[3]),
+              : EdgeInsets.fromLTRB(paddings[0], paddings[1], paddings[2], paddings[3]),
       child: view,
     );
     if (hasClick) {
@@ -143,39 +140,20 @@ extension CustomWrap on Widget {
       );
     }
 
-    view = expanded <= 0 || (gone != null && gone)
-        ? view
-        : Expanded(child: view, flex: hide ?? false ? 0 : expanded);
+    view = expanded <= 0 || (gone != null && gone) ? view : Expanded(child: view, flex: hide ?? false ? 0 : expanded);
 
     if (blur != null && blur > 0) {
-      view = ClipRect(
-          child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
-              child: view));
+      view = ClipRect(child: BackdropFilter(filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur), child: view));
     }
     return view;
   }
 
   Widget loc(List<double?> rect, {double? w, double? h}) {
-    return Positioned(
-        left: rect[0],
-        top: rect[1],
-        right: rect[2],
-        bottom: rect[3],
-        width: w,
-        height: h,
-        child: this);
+    return Positioned(left: rect[0], top: rect[1], right: rect[2], bottom: rect[3], width: w, height: h, child: this);
   }
 
-  Widget align(
-      [AlignmentGeometry alignment = Alignment.center,
-      double? widthFactor,
-      double? heightFactor]) {
-    return Align(
-        alignment: alignment,
-        widthFactor: widthFactor,
-        heightFactor: heightFactor,
-        child: this);
+  Widget align([AlignmentGeometry alignment = Alignment.center, double? widthFactor, double? heightFactor]) {
+    return Align(alignment: alignment, widthFactor: widthFactor, heightFactor: heightFactor, child: this);
   }
 
   Widget safeArea() {
@@ -184,8 +162,7 @@ extension CustomWrap on Widget {
 }
 
 class SimpleText extends Text {
-  SimpleText(String? data, double? fontSize, Color? fontColor,
-      {Key? key, FontWeight? fw, TextAlign? ta})
+  SimpleText(String? data, double? fontSize, Color? fontColor, {Key? key, FontWeight? fw, TextAlign? ta})
       : super(data ?? '',
             key: key,
             textAlign: ta,
@@ -207,8 +184,7 @@ class WidgetUtil {
   /// context: Widget context.
   /// isOnce: true,Continuous monitoring  false,Listen only once.
   /// onCallBack: Widget Rect CallBack.
-  void asyncPrepare(
-      BuildContext context, bool isOnce, ValueChanged<Rect>? onCallBack) {
+  void asyncPrepare(BuildContext context, bool isOnce, ValueChanged<Rect>? onCallBack) {
     if (_hasMeasured) return;
     WidgetsBinding.instance.addPostFrameCallback((Duration timeStamp) {
       RenderBox? box = getRenderBox(context);
@@ -272,23 +248,16 @@ class WidgetUtil {
     String? package,
     ImageConfiguration? configuration,
   }) {
-    if (image == null &&
-        (url == null || url.isEmpty) &&
-        (localUrl == null || localUrl.isEmpty)) {
+    if (image == null && (url == null || url.isEmpty) && (localUrl == null || localUrl.isEmpty)) {
       return Future.value(Rect.zero);
     }
     Completer<Rect> completer = Completer<Rect>();
     Image? img = image;
-    img ??= (url != null && url.isNotEmpty)
-        ? Image.network(url)
-        : Image.asset(localUrl!, package: package);
-    img.image
-        .resolve(configuration ?? const ImageConfiguration())
-        .addListener(ImageStreamListener(
+    img ??= (url != null && url.isNotEmpty) ? Image.network(url) : Image.asset(localUrl!, package: package);
+    img.image.resolve(configuration ?? const ImageConfiguration()).addListener(ImageStreamListener(
           (ImageInfo info, bool synchronousCall) {
             if (!completer.isCompleted) {
-              completer.complete(Rect.fromLTWH(0, 0,
-                  info.image.width.toDouble(), info.image.height.toDouble()));
+              completer.complete(Rect.fromLTWH(0, 0, info.image.width.toDouble(), info.image.height.toDouble()));
             }
           },
           onError: (dynamic exception, StackTrace? stackTrace) {
@@ -316,23 +285,16 @@ class WidgetUtil {
     String? package,
     ImageConfiguration? configuration,
   }) {
-    if (image == null &&
-        (url == null || url.isEmpty) &&
-        (localUrl == null || localUrl.isEmpty)) {
+    if (image == null && (url == null || url.isEmpty) && (localUrl == null || localUrl.isEmpty)) {
       return Future.error("image is null.");
     }
     Completer<Rect> completer = Completer<Rect>();
     Image? img = image;
-    img ??= (url != null && url.isNotEmpty)
-        ? Image.network(url)
-        : Image.asset(localUrl!, package: package);
-    img.image
-        .resolve(configuration ?? const ImageConfiguration())
-        .addListener(ImageStreamListener(
+    img ??= (url != null && url.isNotEmpty) ? Image.network(url) : Image.asset(localUrl!, package: package);
+    img.image.resolve(configuration ?? const ImageConfiguration()).addListener(ImageStreamListener(
           (ImageInfo info, bool synchronousCall) {
             if (!completer.isCompleted) {
-              completer.complete(Rect.fromLTWH(0, 0,
-                  info.image.width.toDouble(), info.image.height.toDouble()));
+              completer.complete(Rect.fromLTWH(0, 0, info.image.width.toDouble(), info.image.height.toDouble()));
             }
           },
           onError: (dynamic exception, StackTrace? stackTrace) {

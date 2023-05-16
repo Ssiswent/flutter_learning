@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
+import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
 
 import 'material_floating_search_bar_controller.dart';
 
@@ -31,8 +31,7 @@ class FloatingSearchBarPage extends StatelessWidget {
   }
 
   Widget buildFloatingSearchBar(context) {
-    final isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
+    final isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
 
     return GetBuilder<FloatingSearchBarGetController>(
       builder: (_) {
@@ -134,8 +133,7 @@ class FloatingSearchAppBarExample extends StatelessWidget {
             separatorBuilder: (context, index) => const Divider(),
             itemBuilder: (context, index) {
               return InkWell(
-                onTap: () =>
-                    controller.clickOnItems(name: controller.newNames[index]),
+                onTap: () => controller.clickOnItems(name: controller.newNames[index]),
                 child: ListTile(
                   title: Text(controller.newNames[index]),
                 ),

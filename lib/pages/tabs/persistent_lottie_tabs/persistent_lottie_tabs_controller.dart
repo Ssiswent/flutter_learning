@@ -9,10 +9,8 @@ import 'package:flutter/material.dart';
 
 import '../settings.dart';
 
-class PersistentLottieTabsController extends GetxController
-    with SingleGetTickerProviderMixin {
-  PersistentTabController tabController =
-      PersistentTabController(initialIndex: 0);
+class PersistentLottieTabsController extends GetxController with SingleGetTickerProviderMixin {
+  PersistentTabController tabController = PersistentTabController(initialIndex: 0);
 
   late AnimationController animationController1;
   late AnimationController animationController2;

@@ -42,10 +42,10 @@ class MySliderWidgetPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
+                    const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           "客梯车对接",
                           style: TextStyle(
@@ -76,10 +76,10 @@ class MySliderWidgetPage extends StatelessWidget {
               ).loc([0, 0, null, 0]),
               Offstage(
                 offstage: !controller.hasFinished,
-                child: Column(
+                child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       "",
                       style: TextStyle(
@@ -166,10 +166,10 @@ class _MySliderWidgetState extends State<MySliderWidget> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
+                const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       "客梯车对接",
                       style: TextStyle(
@@ -200,10 +200,10 @@ class _MySliderWidgetState extends State<MySliderWidget> {
           ).loc([0, 0, null, 0]),
           Offstage(
             offstage: !widget.hasFinished,
-            child: Column(
+            child: const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   "",
                   style: TextStyle(
@@ -290,9 +290,9 @@ class _MySliderWidgetState extends State<MySliderWidget> {
   onLongPress() {
     Get.dialog(
       Center(
-        child: Column(
+        child: const Column(
           mainAxisSize: MainAxisSize.min,
-          children: const [
+          children: [
             ListTile(
               title: Text("修改开始时间"),
             ),

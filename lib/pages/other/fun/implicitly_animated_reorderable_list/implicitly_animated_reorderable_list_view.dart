@@ -3,13 +3,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
-import 'package:implicitly_animated_reorderable_list/implicitly_animated_reorderable_list.dart';
-import 'package:implicitly_animated_reorderable_list/transitions.dart';
+import 'package:implicitly_animated_reorderable_list_2/implicitly_animated_reorderable_list_2.dart';
+import 'package:implicitly_animated_reorderable_list_2/transitions.dart';
 import 'box.dart';
 import 'implicitly_animated_reorderable_list_controller.dart';
 
-class ImplicitlyAnimatedReorderableListPage
-    extends GetView<ImplicitlyAnimatedReorderableListController> {
+class ImplicitlyAnimatedReorderableListPage extends GetView<ImplicitlyAnimatedReorderableListController> {
   const ImplicitlyAnimatedReorderableListPage({Key? key}) : super(key: key);
 
   @override
@@ -74,8 +73,7 @@ class ImplicitlyAnimatedReorderableListPage
       padding: EdgeInsets.zero,
       areItemsTheSame: (oldItem, newItem) => oldItem == newItem,
       onReorderStarted: (item, index) => controller.onReorderStarted(),
-      onReorderFinished: (movedLanguage, from, to, newItems) =>
-          controller.onReorderFinished(newItems),
+      onReorderFinished: (movedLanguage, from, to, newItems) => controller.onReorderFinished(newItems),
       itemBuilder: (context, itemAnimation, lang, index) {
         return buildReorderable(lang, (tile) {
           return SizeFadeTransition(
@@ -147,9 +145,9 @@ class ImplicitlyAnimatedReorderableListPage
     return Box(
       color: Colors.white,
       onTap: controller.addItem,
-      child: Column(
+      child: const Column(
         mainAxisSize: MainAxisSize.min,
-        children: const [
+        children: [
           ListTile(
             leading: SizedBox(
               height: 36,

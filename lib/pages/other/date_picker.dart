@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:date_format/date_format.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:flutter_datetime_picker_bdaya/flutter_datetime_picker_bdaya.dart';
 
 class DatePickerPage extends StatefulWidget {
   const DatePickerPage({Key? key}) : super(key: key);
@@ -98,8 +98,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
                   child: Row(
                     children: [
                       Text(
-                        formatDate(thirdNowDateTime,
-                            [yyyy, '-', mm, '-', dd, '  ', HH, ':', nn]),
+                        formatDate(thirdNowDateTime, [yyyy, '-', mm, '-', dd, '  ', HH, ':', nn]),
                         textAlign: TextAlign.center,
                       ),
                       const Icon(Icons.arrow_drop_down)
@@ -151,7 +150,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
   }
 
   void _showThirdDatePicker() {
-    DatePicker.showDatePicker(
+    DatePickerBdaya.showDatePicker(
       context,
       showTitleActions: true,
       minTime: DateTime(1980),
@@ -166,7 +165,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
       },
       currentTime: thirdNowDate,
       locale: LocaleType.zh,
-      theme: const DatePickerTheme(
+      theme: const DatePickerThemeBdaya(
         // headerColor: Colors.orange,
         // backgroundColor: Colors.blue,
         // itemStyle: TextStyle(
@@ -177,7 +176,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
   }
 
   void _showThirdTimePicker() {
-    DatePicker.showTimePicker(
+    DatePickerBdaya.showTimePicker(
       context,
       showTitleActions: true,
       onChanged: (date) {
@@ -191,7 +190,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
       },
       currentTime: thirdNowTime,
       locale: LocaleType.zh,
-      theme: const DatePickerTheme(
+      theme: const DatePickerThemeBdaya(
         // headerColor: Colors.orange,
         // backgroundColor: Colors.blue,
         // itemStyle: TextStyle(
@@ -202,7 +201,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
   }
 
   void _showThirdDateTimePicker() {
-    DatePicker.showDateTimePicker(
+    DatePickerBdaya.showDateTimePicker(
       context,
       showTitleActions: true,
       onChanged: (date) {
@@ -216,7 +215,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
       },
       currentTime: thirdNowDateTime,
       locale: LocaleType.zh,
-      theme: const DatePickerTheme(
+      theme: const DatePickerThemeBdaya(
         // headerColor: Colors.orange,
         // backgroundColor: Colors.blue,
         // itemStyle: TextStyle(

@@ -89,6 +89,11 @@ class FunPage extends StatelessWidget {
               title: "ExtendedImage",
               onTap: controller.toExtendedImage,
             ),
+            ListItem(
+              context,
+              title: "Focus",
+              onTap: controller.toFocusPage,
+            ),
           ],
         ),
       ),

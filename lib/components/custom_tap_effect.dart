@@ -20,7 +20,7 @@ class CustomTapEffect extends SingleChildRenderObjectWidget {
       : super(key: key, child: child);
   @override
   CustomRippleRender createRenderObject(BuildContext context) =>
-      CustomRippleRender(Material.of(context)!, isIOSEffect ?? false,
+      CustomRippleRender(Material.of(context), isIOSEffect ?? false,
           borderless ?? false, borderlessSize, rippleInShape ?? false);
 }
 

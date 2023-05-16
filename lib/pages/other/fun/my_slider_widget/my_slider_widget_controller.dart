@@ -55,9 +55,9 @@ class MySliderWidgetController extends GetxController {
   onLongPress() {
     Get.dialog(
       Center(
-        child: Column(
+        child: const Column(
           mainAxisSize: MainAxisSize.min,
-          children: const [
+          children: [
             ListTile(
               title: Text("修改开始时间"),
             ),

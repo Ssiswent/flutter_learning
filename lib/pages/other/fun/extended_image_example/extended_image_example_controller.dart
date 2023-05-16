@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 
 typedef DoubleClickAnimationListener = void Function();
 
-class ExtendedImageExampleController extends GetxController
-    with SingleGetTickerProviderMixin {
+class ExtendedImageExampleController extends GetxController with SingleGetTickerProviderMixin {
   late AnimationController animationController;
   late AnimationController doubleClickAnimationController;
   late DoubleClickAnimationListener doubleClickAnimationListener;
@@ -15,13 +14,9 @@ class ExtendedImageExampleController extends GetxController
 
   @override
   void onInit() {
-    animationController = AnimationController(
-        vsync: this,
-        duration: const Duration(seconds: 3),
-        lowerBound: 0.0,
-        upperBound: 1.0);
-    doubleClickAnimationController = AnimationController(
-        duration: const Duration(milliseconds: 150), vsync: this);
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 3), lowerBound: 0.0, upperBound: 1.0);
+    doubleClickAnimationController = AnimationController(duration: const Duration(milliseconds: 150), vsync: this);
     super.onInit();
   }
 
@@ -58,12 +53,9 @@ class ExtendedImageExampleController extends GetxController
 
     doubleClickAnimationListener = () {
       //print(_animation.value);
-      state.handleDoubleTap(
-          scale: doubleClickAnimation!.value,
-          doubleTapPosition: pointerDownPosition);
+      state.handleDoubleTap(scale: doubleClickAnimation!.value, doubleTapPosition: pointerDownPosition);
     };
-    doubleClickAnimation = doubleClickAnimationController
-        .drive(Tween<double>(begin: begin, end: end));
+    doubleClickAnimation = doubleClickAnimationController.drive(Tween<double>(begin: begin, end: end));
 
     doubleClickAnimation!.addListener(doubleClickAnimationListener);
 
