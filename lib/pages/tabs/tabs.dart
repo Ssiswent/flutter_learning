@@ -3,6 +3,7 @@ import 'package:flutter_learning/pages/drawer/drawer.dart';
 import 'package:flutter_learning/theme/themes.dart';
 import 'package:flutter_learning/utils/extensions.dart';
 import 'package:get/get.dart';
+import 'package:remixicon/remixicon.dart';
 
 import '../../main.dart';
 import 'home.dart';
@@ -59,25 +60,24 @@ class _TabsState extends State<Tabs> {
                 : (myAppController.darkMode.value == 1
                     ? ColorUtil.createMaterialColor(Colors.white)
                     : Themes.colors[themeController.theme.value]),
-            unselectedWidgetColor: myAppController.darkMode.value == 1
-                ? ColorUtil.fromHex("#C7C7C7")
-                : ColorUtil.fromHex("#757575"),
+            unselectedWidgetColor:
+                myAppController.darkMode.value == 1 ? ColorUtil.fromHex("#C7C7C7") : ColorUtil.fromHex("#757575"),
             highlightColor: Colors.transparent,
             splashColor: Colors.transparent,
           ),
-          child: BottomNavigationBar(
-            selectedFontSize: 12,
+          child: NavigationBar(
+            height: 40,
             backgroundColor: Theme.of(context).colorScheme.surface,
-            currentIndex: _currentIndex,
-            onTap: (int index) {
+            selectedIndex: _currentIndex,
+            onDestinationSelected: (index) {
               setState(() {
                 _currentIndex = index;
               });
             },
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: "首页"),
-              BottomNavigationBarItem(icon: Icon(Icons.category), label: "分类"),
-              BottomNavigationBarItem(icon: Icon(Icons.settings), label: "设置"),
+            destinations: const [
+              NavigationDestination(icon: Icon(Remix.home_smile_line), label: "首页"),
+              NavigationDestination(icon: Icon(Remix.apps_line), label: "分类"),
+              NavigationDestination(icon: Icon(Remix.settings_line), label: "设置"),
             ],
           ),
         ),
@@ -91,25 +91,24 @@ class _TabsState extends State<Tabs> {
       // endDrawer: const Drawer(
       //   child: Text("Drawer"),
       // ),
-      floatingActionButton: Container(
-        width: 56,
-        height: 56,
-        padding: const EdgeInsets.all(4),
-        margin: const EdgeInsets.only(top: 10),
-        child: FloatingActionButton(
-          backgroundColor: Themes.colors[themeController.theme.value],
-          onPressed: () {
-            setState(() {
-              _currentIndex = 1;
-            });
-          },
-          child: const Icon(Icons.add, color: Colors.white),
-        ),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(28),
-            color: Theme.of(context).colorScheme.surface),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: Container(
+      //   width: 56,
+      //   height: 56,
+      //   padding: const EdgeInsets.all(4),
+      //   margin: const EdgeInsets.only(top: 10),
+      //   child: FloatingActionButton(
+      //     backgroundColor: Themes.colors[themeController.theme.value],
+      //     onPressed: () {
+      //       setState(() {
+      //         _currentIndex = 1;
+      //       });
+      //     },
+      //     child: const Icon(Icons.add, color: Colors.white),
+      //   ),
+      //   decoration:
+      //       BoxDecoration(borderRadius: BorderRadius.circular(28), color: Theme.of(context).colorScheme.surface),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

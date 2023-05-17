@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learning/components/round_underline_tab_indicator.dart';
 import 'package:flutter_learning/pages/other/fun/fun_view.dart';
 import 'package:flutter_learning/pages/user/login_register.dart';
 
@@ -11,8 +10,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 // 注意
-class _SettingsPageState extends State<SettingsPage>
-    with SingleTickerProviderStateMixin {
+class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -31,13 +29,15 @@ class _SettingsPageState extends State<SettingsPage>
         title: TabBar(
           // 注意
           controller: _tabController,
-          indicator: const RoundUnderlineTabIndicator(
-            indicatorWidth: 40,
-            borderSide: BorderSide(
-              width: 3.5,
-              color: Colors.white,
-            ),
-          ),
+          dividerColor: Colors.transparent,
+          // indicatorColor: Colors.black,
+          // indicator: const RoundUnderlineTabIndicator(
+          //   indicatorWidth: 40,
+          //   borderSide: BorderSide(
+          //     width: 3.5,
+          //     color: Colors.white,
+          //   ),
+          // ),
           tabs: const [Tab(text: "登录注册"), Tab(text: "推荐")],
         ),
       ),

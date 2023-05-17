@@ -1,4 +1,5 @@
 import 'package:flutter_learning/pages/other/fun/expandable_page.dart';
+import 'package:flutter_learning/pages/other/fun/flutter/index.dart';
 import 'package:flutter_learning/pages/other/fun/flutter_inner_drawer.dart';
 import 'package:flutter_learning/routes/routes.dart';
 import 'package:get/get.dart';
@@ -82,5 +83,9 @@ class FunController extends GetxController {
 
   toFocusPage() {
     Get.toNamed(RouteConfig.focus);
+  }
+
+  toFlutterPage() {
+    Get.to(() => const FlutterPage());
   }
 }

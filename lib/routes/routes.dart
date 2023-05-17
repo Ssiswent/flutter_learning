@@ -27,8 +27,7 @@ import 'package:flutter_learning/pages/other/get_bindings/get_bindings_view.dart
 import 'package:flutter_learning/pages/other/get_counter/view.dart';
 import 'package:flutter_learning/pages/other/get_jump/get_jump_one/view.dart';
 import 'package:flutter_learning/pages/other/get_jump/get_jump_two/view.dart';
-import 'package:flutter_learning/pages/tabs/persistent_lottie_tabs/persistent_lottie_tabs_binding.dart';
-import 'package:flutter_learning/pages/tabs/persistent_lottie_tabs/persistent_lottie_tabs_view.dart';
+import 'package:flutter_learning/pages/tabs/tabs.dart';
 import 'package:get/get.dart';
 
 class RouteConfig {
@@ -42,8 +41,7 @@ class RouteConfig {
 
   static const String staggeredGridView = "/staggeredGridView";
   static const String flutterSlidablePage = "/flutterSlidablePage";
-  static const String implicitlyAnimatedReorderableList =
-      "/implicitlyAnimatedReorderableList";
+  static const String implicitlyAnimatedReorderableList = "/implicitlyAnimatedReorderableList";
   static const String signatureExample = "/signatureExample";
   static const String ratingBar = "/ratingBar";
   static const String percentIndicator = "/percentIndicator";
@@ -65,8 +63,7 @@ class RouteConfig {
     // ),
     GetPage(
       name: main,
-      page: () => const PersistentLottieTabsPage(),
-      binding: PersistentLottieTabsBinding(),
+      page: () => const Tabs(),
     ),
     GetPage(name: getCounter, page: () => GetCounterPage()),
     GetPage(name: getJumpOne, page: () => GetJumpOnePage()),

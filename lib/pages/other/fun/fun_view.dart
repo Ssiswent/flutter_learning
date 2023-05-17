@@ -94,6 +94,11 @@ class FunPage extends StatelessWidget {
               title: "Focus",
               onTap: controller.toFocusPage,
             ),
+            ListItem(
+              context,
+              title: "Flutter 3.10.0",
+              onTap: controller.toFlutterPage,
+            ),
           ],
         ),
       ),

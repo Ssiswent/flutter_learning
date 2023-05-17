@@ -87,12 +87,14 @@ class MyApp extends StatelessWidget {
         ),
       ),
       theme: ThemeData(
+        useMaterial3: true,
         brightness: Brightness.light,
         primarySwatch: Themes.colors[themeController.theme.value],
         highlightColor: ColorUtil.fromHex("#55FD6D50"),
         // splashColor: ColorUtil.fromHex("#55FD6D50"),
       ),
       darkTheme: ThemeData(
+        useMaterial3: true,
         brightness: Brightness.dark,
         primarySwatch: Themes.colors[themeController.theme.value],
         highlightColor: ColorUtil.fromHex("#55FD6D50"),
@@ -132,12 +134,14 @@ class MyApp extends StatelessWidget {
       ),
       theme: myAppController.darkMode.value == 1
           ? ThemeData(
+              useMaterial3: true,
               brightness: Brightness.dark,
               primarySwatch: Themes.colors[themeController.theme.value],
               highlightColor: ColorUtil.fromHex("#55FD6D50"),
               // splashColor: ColorUtil.fromHex("#55FD6D50"),
             )
           : ThemeData(
+              useMaterial3: true,
               brightness: Brightness.light,
               primarySwatch: Themes.colors[themeController.theme.value],
               highlightColor: ColorUtil.fromHex("#55FD6D50"),
