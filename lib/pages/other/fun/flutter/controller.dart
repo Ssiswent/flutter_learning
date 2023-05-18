@@ -13,15 +13,22 @@ class FlutterController extends GetxController {
     final json = {'name': 'Michael', 'height': 180};
     // Find Michael's height.
     if (json case {'name': 'Michael', 'height': int h}) {
-      print('Michael is $h cm tall.');
+      log('Michael is $h cm tall.');
     } else {
-      print('Error: json contains no height info for Michael!');
+      log('Error: json contains no height info for Michael!');
     }
     var (String name, int height) = userInfo(json);
     log('name: $name');
     log('height: $height');
     var dt = DateTime.now();
     log('describeDate: ${describeDate(dt)}');
+
+    var record = (1, a: 2, 3, b: 4);
+    log('${record.runtimeType}');
+    log('${record.$1}'); // Print "1"
+    log('${record.a}'); // Print "2"
+    log('${record.$2}'); // Print "3"
+    log('${record.b}'); // Print "4"
   }
 
   (String, int) userInfo(Map<String, dynamic> json) {

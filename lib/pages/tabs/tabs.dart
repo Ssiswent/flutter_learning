@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 import 'package:remixicon/remixicon.dart';
 
 import '../../main.dart';
-import 'home.dart';
 import 'category.dart';
+import 'home.dart';
 import 'settings.dart';
 
 class Tabs extends StatefulWidget {
@@ -66,7 +66,7 @@ class _TabsState extends State<Tabs> {
             splashColor: Colors.transparent,
           ),
           child: NavigationBar(
-            height: 40,
+            height: 56,
             backgroundColor: Theme.of(context).colorScheme.surface,
             selectedIndex: _currentIndex,
             onDestinationSelected: (index) {
